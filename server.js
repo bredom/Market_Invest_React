@@ -42,9 +42,11 @@ app.use((req, res, next) => {
 });
 
 //Routes
-app.get('/', (req, res) => {
-  res.send('Hello');
-});
+app.use('/api/v1/auth', require('./routes/authRoutes'));
+app.use('/api/v1/users', require('./routes/usersRoutes'));
+app.use('/api/v1/portfolio', require('./routes/portfolioRoutes'));
+app.use('/api/v1/watchlists', require('./routes/watchlistsRoutes'));
+app.use('/api/v1/screener', require('./routes/screenerRoutes'));
 
 //Handling wrong address
 app.all('*', (req, res, next) => {
